@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mookuma!</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Import Pixel Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- SECTION 1: ENTRY SCREEN -->
+    <div id="entry-screen" class="screen active">
+        <canvas id="effects-canvas"></canvas>
+        <h1 class="pixel-text title">HAPPY BIRTHDAY MOOKUMA</h1>
+
+        <div class="keypad-container">
+            <div id="password-display" class="pixel-text">----</div>
+            <div class="keypad">
+                <button class="key pixel-text" onclick="pressKey(1)">1</button>
+                <button class="key pixel-text" onclick="pressKey(2)">2</button>
+                <button class="key pixel-text" onclick="pressKey(3)">3</button>
+                <button class="key pixel-text" onclick="pressKey(4)">4</button>
+                <button class="key pixel-text" onclick="pressKey(5)">5</button>
+                <button class="key pixel-text" onclick="pressKey(6)">6</button>
+                <button class="key pixel-text" onclick="pressKey(7)">7</button>
+                <button class="key pixel-text" onclick="pressKey(8)">8</button>
+                <button class="key pixel-text" onclick="pressKey(9)">9</button>
+                <button class="key pixel-text" onclick="pressKey('C')">C</button>
+                <button class="key pixel-text" onclick="pressKey(0)">0</button>
+                <button class="key pixel-text" onclick="submitPassword()">OK</button>
+            </div>
+            <p id="error-msg" class="pixel-text error"></p>
+        </div>
+    </div>
+
+    <!-- SECTION 2: GAME SCREEN -->
+    <div id="game-screen" class="screen">
+        <div id="game-ui">
+            <div class="stats-container">
+                <div class="score pixel-text">Score: <span id="score-val">0</span></div>
+                <div class="timer pixel-text">Time: <span id="time-val">00:00:00</span></div>
+            </div>
+            <div class="settings-controls">
+                <label for="difficulty-select" class="pixel-text" style="font-size: 10px; color: #fff;">Diff:</label>
+                <select id="difficulty-select" class="pixel-text">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="game-controls">
+                <button id="pause-btn" class="pixel-text">❚❚</button>
+                <button id="back-btn" class="pixel-text" onclick="showScreen('entry-screen')">Exit</button>
+            </div>
+        </div>
+
+        <!-- Message Container -->
+        <div id="message-container" class="pixel-text"></div>
+
+        <!-- The Game Canvas -->
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Background Container for Popups -->
+        <div id="background-popups"></div>
+    </div>
+
+    <!-- SECTION 3: SECRET SCREEN -->
+    <div id="secret-screen" class="screen">
+        <h2 class="pixel-text" style="color: #fff; margin-bottom: 20px; text-shadow: 2px 2px 0 #000;">SECRET MESSAGE
+        </h2>
+        <div class="video-wrapper"
+            style="width: 90%; max-width: 600px; background: #fff; padding: 10px; border: 4px solid #FFB7B2; box-shadow: 8px 8px 0 rgba(0,0,0,0.2);">
+            <video id="secret-video" style="width: 100%; display: block;">
+                <!-- Source will be set in JS -->
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-controls" style="display: flex; align-items: center; gap: 10px; margin-top: 10px;">
+                <button id="vid-play-btn" class="pixel-text"
+                    style="background: #FFD700; border: none; padding: 5px 10px; cursor: pointer; box-shadow: 3px 3px 0 rgba(0,0,0,0.2);">▶</button>
+                <input type="range" id="vid-seek-bar" value="0" min="0" max="100" step="0.1"
+                    style="flex-grow: 1; cursor: pointer;">
+                <button id="vid-replay-btn" class="pixel-text"
+                    style="background: #A2E1DB; border: none; padding: 5px 10px; cursor: pointer; box-shadow: 3px 3px 0 rgba(0,0,0,0.2);">↺</button>
+            </div>
+        </div>
+        <button class="pixel-text" onclick="showScreen('entry-screen')"
+            style="margin-top: 20px; background: #FFB7B2; border: none; padding: 10px 20px; cursor: pointer; box-shadow: 4px 4px 0 rgba(0,0,0,0.2);">Back</button>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+    <script src="entry_effects.js"></script>
+</body>
+
+</html>

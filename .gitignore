@@ -1,0 +1,13 @@
+# Node modules (if you add any dependencies later)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Log files
+*.log
