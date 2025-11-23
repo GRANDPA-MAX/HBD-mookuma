@@ -32,6 +32,20 @@ let totalGained = 0;
 let totalLost = 0;
 let availableImagePool = [];
 let lastShownImage = null;
+let preloadedImages = []; // Cache for images
+
+// --- PRELOAD ASSETS ---
+function preloadImages() {
+    if (typeof LOCAL_IMAGES !== 'undefined') {
+        LOCAL_IMAGES.forEach(filename => {
+            const img = new Image();
+            img.src = 'assets/' + filename;
+            preloadedImages.push(img);
+        });
+    }
+}
+// Start preloading immediately
+preloadImages();
 
 // Timer State
 let gameTimerInterval;
