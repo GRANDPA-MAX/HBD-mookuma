@@ -70,3 +70,10 @@ const SECRET_VIDEO_FILE = "video1.mp4";
 // 4. EFFECTS
 // Set to false to disable the 3D entry screen effects.
 const ENABLE_ENTRY_EFFECTS = true;
+
+// 5. GAMEPLAY FEATURES
+// Set to false to disable surprise images popping up during gameplay
+const ENABLE_SURPRISE_IMAGES = true;
+
+// Set to false to disable milestone messages appearing at specific scores
+const ENABLE_MILESTONE_MESSAGES = true;

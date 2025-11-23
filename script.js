@@ -386,6 +386,7 @@ function update() {
 }
 
 function checkMessages() {
+    if (typeof ENABLE_MILESTONE_MESSAGES !== 'undefined' && !ENABLE_MILESTONE_MESSAGES) return;
     if (typeof MILESTONE_MESSAGES !== 'undefined') {
         MILESTONE_MESSAGES.forEach(msg => {
             if (score >= msg.score && !shownMessages.has(msg.score)) {
@@ -409,6 +410,7 @@ function showMessage(text) {
 }
 
 function spawnSurpriseImage() {
+    if (typeof ENABLE_SURPRISE_IMAGES !== 'undefined' && !ENABLE_SURPRISE_IMAGES) return;
     const container = document.getElementById('background-popups');
     const img = document.createElement('img');
     img.classList.add('popup-img');
